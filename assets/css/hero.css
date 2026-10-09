@@ -1,89 +1,370 @@
-/* Pirate hero: CSS-first cinematic entrance. Scoped to .hero / .site-nav / .after-hero. */
-:root{
-  --navy-950:#02050c; --navy-900:#050b18; --navy-800:#0a1428;
-  --gold:#c9a24b; --gold-soft:#e6cf8f; --ink:#f3ecd9;
-  --ease-cine:cubic-bezier(.16,1,.3,1);
-  --ease-in-out:cubic-bezier(.65,0,.35,1);
-  --font-display:"Cinzel","Trajan Pro",Georgia,serif;
-  --font-body:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+:root {
+  --navy-950: #02050c;
+  --navy-900: #050b18;
+  --navy-800: #0a1428;
+  --gold: #c9a24b;
+  --gold-soft: #e6cf8f;
+  --ink: #f3ecd9;
+
+  --ease-cine: cubic-bezier(.16, 1, .3, 1);
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+
+  --font-display: "Cinzel", "Trajan Pro", Georgia, serif;
+  --font-body: "Cormorant Garamond", Georgia, "Times New Roman", serif;
 }
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--navy-950);color:var(--ink);font-family:var(--font-body)}
 
-/* Navbar */
-.site-nav{position:fixed;inset:0 0 auto 0;z-index:20;display:flex;align-items:center;justify-content:space-between;
-  padding:max(1rem,env(safe-area-inset-top)) clamp(1.25rem,4vw,3.5rem) 1rem;
-  background:linear-gradient(to bottom,rgba(2,5,12,.75),transparent);
-  opacity:0;transform:translateY(-100%);animation:nav-in 1.1s var(--ease-cine) .3s forwards}
-.site-nav .brand{font-family:var(--font-display);font-size:1.05rem;letter-spacing:.14em;color:var(--gold-soft);text-decoration:none}
-.site-nav ul{display:flex;gap:clamp(1rem,2.6vw,2.4rem);list-style:none;margin:0;padding:0}
-.site-nav a{color:var(--ink);text-decoration:none;font-size:1.05rem;letter-spacing:.04em;position:relative;padding:.25rem 0}
-.site-nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);
-  transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease-cine)}
-.site-nav ul a:hover::after,.site-nav ul a:focus-visible::after{transform:scaleX(1)}
-a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
-@media (max-width:720px){.site-nav ul{display:none}} /* keep your existing mobile menu button here */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-/* Hero */
-.hero{position:relative;min-height:100vh;min-height:100svh;display:grid;place-items:center;overflow:hidden;
-  background:var(--navy-950) center/cover no-repeat url("../img/hero-poster.jpg");isolation:isolate}
-.hero__video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3;
-  opacity:0;transition:opacity 1.6s var(--ease-in-out);transform:scale(1.04);animation:slow-push 18s ease-out forwards}
-.hero.is-playing .hero__video{opacity:1}
-.hero__overlay{position:absolute;inset:0;z-index:-2;pointer-events:none;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--navy-950);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+/* ---------- NAVBAR ---------- */
+
+.site-nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: max(1rem, env(safe-area-inset-top))
+    clamp(1.25rem, 4vw, 3.5rem) 1rem;
+  background: linear-gradient(
+    to bottom,
+    rgba(2, 5, 12, .75),
+    transparent
+  );
+  opacity: 0;
+  transform: translateY(-100%);
+  animation: nav-in 1.1s var(--ease-cine) .3s forwards;
+}
+
+.site-nav .brand {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: .14em;
+  color: var(--gold-soft);
+  text-decoration: none;
+}
+
+.site-nav ul {
+  display: flex;
+  gap: clamp(1rem, 2.6vw, 2.4rem);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 1.05rem;
+  letter-spacing: .04em;
+  position: relative;
+  padding: .25rem 0;
+}
+
+.site-nav ul a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .5s var(--ease-cine);
+}
+
+.site-nav ul a:hover::after,
+.site-nav ul a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+}
+
+@media (max-width: 720px) {
+  .site-nav ul {
+    display: none;
+  }
+}
+
+/* ---------- HERO BACKGROUND ---------- */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--navy-950) center / cover no-repeat
+    url("../img/hero-poster.jpg");
+}
+
+/* Video stays at a constant size and brightness */
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+
+  opacity: 1;
+  filter: brightness(.95) saturate(1.1);
+
+  transform: none;
+  animation: none;
+  transition: none;
+}
+
+/* Prevent JavaScript playing state from fading the video */
+.hero.is-playing .hero__video {
+  opacity: 1;
+}
+
+/* Lighter overlay so the video is clearly visible */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+
   background:
-    radial-gradient(ellipse at 50% 45%,rgba(5,11,24,.15) 0%,rgba(5,11,24,.7) 100%),
-    linear-gradient(to bottom,rgba(2,5,12,.7) 0%,rgba(5,11,24,.35) 40%,rgba(5,11,24,.8) 80%,var(--navy-900) 100%)}
-
-.hero__content{position:relative;text-align:center;max-width:62rem;padding:7rem 1.5rem 6rem;
-  transform:translate3d(0,calc(var(--p,0)*90px),0);opacity:calc(1 - var(--p,0)*1.15);will-change:transform,opacity}
-.hero__title{margin:0;font-family:var(--font-display);font-weight:600;line-height:1.04;letter-spacing:.04em;
-  font-size:clamp(2.4rem,8.2vw,6.4rem);text-wrap:balance;
-  background:linear-gradient(180deg,#fff7de 10%,var(--gold) 120%);-webkit-background-clip:text;background-clip:text;color:transparent;
-  text-shadow:0 0 40px rgba(201,162,75,.18)}
-.hero__sub{margin:1.4rem auto 0;max-width:36rem;font-size:clamp(1.15rem,2.4vw,1.6rem);font-style:italic;color:rgba(243,236,217,.88)}
-.hero__cta{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2.4rem}
-
-.btn{display:inline-block;padding:.95rem 2.1rem;font-family:var(--font-display);font-size:.92rem;letter-spacing:.14em;text-decoration:none;
-  border:1px solid var(--gold);color:var(--gold-soft);background:rgba(5,11,24,.35);backdrop-filter:blur(4px);
-  transition:background .5s var(--ease-cine),color .5s var(--ease-cine),transform .5s var(--ease-cine),box-shadow .5s var(--ease-cine)}
-.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px -10px rgba(201,162,75,.55)}
-.btn--solid{background:linear-gradient(135deg,var(--gold-soft),var(--gold));color:var(--navy-950);font-weight:700}
-.btn--ghost:hover{background:rgba(201,162,75,.14)}
-
-/* Staggered entrance: heading, subtitle, buttons */
-.reveal{opacity:0;transform:translateY(38px);filter:blur(6px);
-  animation:rise 1.4s var(--ease-cine) forwards;animation-delay:calc(.7s + var(--i,0)*.22s)}
-
-.hero__cue{position:absolute;bottom:1.6rem;left:50%;width:1px;height:48px;background:linear-gradient(var(--gold),transparent);
-  opacity:0;animation:fade 1s ease 2.4s forwards,cue 2.4s ease-in-out 3s infinite;transform-origin:top}
-
-/* Transition into next section */
-.after-hero{position:relative;padding:clamp(4rem,10vw,8rem) clamp(1.25rem,5vw,4rem);margin-top:-1px;
-  background:linear-gradient(to bottom,var(--navy-900),var(--navy-950) 40%)}
-.after-hero::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;
-  background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.5}
-
-@keyframes nav-in{to{opacity:1;transform:none}}
-@keyframes rise{to{opacity:1;transform:none;filter:blur(0)}}
-@keyframes fade{to{opacity:1}}
-@keyframes slow-push{to{transform:scale(1.1)}}
-@keyframes cue{0%,100%{transform:scaleY(.3)}50%{transform:scaleY(1)}}
-
-/* Native scroll-driven parallax where supported (zero JS); hero.js sets --p otherwise */
-@supports (animation-timeline:scroll()){
-  @property --p{syntax:"<number>";inherits:true;initial-value:0}
-  @keyframes hero-scroll{to{--p:1}}
-  .hero{animation:hero-scroll linear both;animation-timeline:view();animation-range:exit 0% exit 100%}
+    linear-gradient(
+      to bottom,
+      rgba(2, 5, 12, .20) 0%,
+      rgba(5, 11, 24, .08) 40%,
+      rgba(5, 11, 24, .28) 80%,
+      rgba(5, 11, 24, .55) 100%
+    );
 }
 
-/* Reduced motion and fallbacks */
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .site-nav,.reveal,.hero__cue{animation:none;opacity:1;transform:none;filter:none}
-  .hero__video{animation:none;transform:none}
-  .hero__content{transform:none!important;opacity:1!important}
-  .hero{animation:none!important}
+/* ---------- HERO CONTENT ---------- */
+
+.hero__content {
+  position: relative;
+  text-align: center;
+  max-width: 62rem;
+  padding: 7rem 1.5rem 6rem;
+  transform: translate3d(0, calc(var(--p, 0) * 90px), 0);
+  opacity: calc(1 - var(--p, 0) * 1.15);
+  will-change: transform, opacity;
 }
-.hero.no-video .hero__video{display:none}
+
+.hero__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: .04em;
+  font-size: clamp(2.4rem, 8.2vw, 6.4rem);
+  text-wrap: balance;
+
+  background: linear-gradient(
+    180deg,
+    #fff7de 10%,
+    var(--gold) 120%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 40px rgba(201, 162, 75, .18);
+}
+
+.hero__sub {
+  margin: 1.4rem auto 0;
+  max-width: 36rem;
+  font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+  font-style: italic;
+  color: rgba(243, 236, 217, .95);
+}
+
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2.4rem;
+}
+
+/* ---------- BUTTONS ---------- */
+
+.btn {
+  display: inline-block;
+  padding: .95rem 2.1rem;
+  font-family: var(--font-display);
+  font-size: .92rem;
+  letter-spacing: .14em;
+  text-decoration: none;
+  border: 1px solid var(--gold);
+  color: var(--gold-soft);
+  background: rgba(5, 11, 24, .55);
+  backdrop-filter: blur(4px);
+
+  transition:
+    background .5s var(--ease-cine),
+    color .5s var(--ease-cine),
+    transform .5s var(--ease-cine),
+    box-shadow .5s var(--ease-cine);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px -10px rgba(201, 162, 75, .55);
+}
+
+.btn--solid {
+  background: linear-gradient(
+    135deg,
+    var(--gold-soft),
+    var(--gold)
+  );
+  color: var(--navy-950);
+  font-weight: 700;
+}
+
+.btn--ghost:hover {
+  background: rgba(201, 162, 75, .14);
+}
+
+/* ---------- CONTENT ENTRANCE EFFECTS ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(38px);
+  filter: blur(6px);
+  animation: rise 1.4s var(--ease-cine) forwards;
+  animation-delay: calc(.7s + var(--i, 0) * .22s);
+}
+
+.hero__cue {
+  position: absolute;
+  bottom: 1.6rem;
+  left: 50%;
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(var(--gold), transparent);
+  opacity: 0;
+  animation:
+    fade 1s ease 2.4s forwards,
+    cue 2.4s ease-in-out 3s infinite;
+  transform-origin: top;
+}
+
+/* ---------- NEXT SECTION ---------- */
+
+.after-hero {
+  position: relative;
+  padding: clamp(4rem, 10vw, 8rem)
+    clamp(1.25rem, 5vw, 4rem);
+  margin-top: -1px;
+  background: linear-gradient(
+    to bottom,
+    var(--navy-900),
+    var(--navy-950) 40%
+  );
+}
+
+.after-hero::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold),
+    transparent
+  );
+  opacity: .5;
+}
+
+/* ---------- ANIMATIONS ---------- */
+
+@keyframes nav-in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rise {
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+@keyframes fade {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cue {
+  0%, 100% {
+    transform: scaleY(.3);
+  }
+
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+/* ---------- REDUCED MOTION ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .site-nav,
+  .reveal,
+  .hero__cue {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+
+  .hero__video {
+    animation: none;
+    transform: none;
+    transition: none;
+    opacity: 1;
+  }
+
+  .hero__content {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Hide the video only when the hero explicitly has no-video class */
+.hero.no-video .hero__video {
+  display: none;
+}
