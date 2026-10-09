@@ -1,0 +1,47 @@
+/* Funny / chaotic layer. Builds on hero.css variables. */
+.wrap{max-width:70rem;margin:0 auto}
+.wrap.narrow{max-width:44rem;text-align:center}
+.sec-title{margin:0;font-family:var(--font-display);font-size:clamp(1.8rem,4.6vw,3.2rem);letter-spacing:.05em;color:var(--gold-soft)}
+.sec-sub{max-width:40rem;margin:1rem 0 3rem;font-size:1.3rem;line-height:1.5;color:rgba(243,236,217,.8)}
+.narrow .sec-sub{margin:1rem auto 0}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,19rem),1fr));gap:1.4rem}
+.card{display:flex;flex-direction:column;gap:.9rem;padding:1.6rem;background:linear-gradient(160deg,var(--navy-800),var(--navy-950));
+  border:1px solid rgba(201,162,75,.3);transition:transform .6s var(--ease-cine),border-color .6s var(--ease-cine)}
+.card:nth-child(odd){transform:rotate(-.6deg)}
+.card:nth-child(even){transform:rotate(.6deg)}
+.card:hover{transform:rotate(0) translateY(-6px);border-color:var(--gold)}
+.card h3{margin:0;font-family:var(--font-display);font-size:1.2rem;letter-spacing:.05em;color:var(--gold-soft)}
+.card p{margin:0;flex:1;font-size:1.2rem;line-height:1.45}
+.card .btn{align-self:flex-start;font-size:.8rem;padding:.8rem 1.3rem;cursor:pointer}
+
+.chaos-row{display:flex;flex-wrap:wrap;gap:1.2rem;justify-content:center;margin-top:3.5rem;min-height:5rem;align-items:center}
+button.btn{cursor:pointer;font-family:var(--font-display)}
+.btn--danger{color:#fff;border-color:#c0392b;background:linear-gradient(135deg,#8e1b10,#c0392b);animation:wobble 2.8s ease-in-out infinite}
+.btn--danger:hover{box-shadow:0 10px 30px -8px rgba(192,57,43,.7)}
+[data-dodge]{transition:transform .35s var(--ease-cine),background .5s var(--ease-cine)}
+
+.after-hero.alt{background:var(--navy-950)}
+.foot{padding:2.5rem 1.25rem;text-align:center;font-style:italic;color:rgba(243,236,217,.6);border-top:1px solid rgba(201,162,75,.2)}
+
+.toast{position:fixed;left:50%;bottom:max(1.5rem,env(safe-area-inset-bottom));z-index:30;max-width:min(92vw,28rem);padding:.9rem 1.4rem;
+  font-size:1.2rem;text-align:center;color:var(--navy-950);background:linear-gradient(135deg,var(--gold-soft),var(--gold));
+  box-shadow:0 14px 40px -10px rgba(0,0,0,.7);opacity:0;pointer-events:none;
+  transform:translate(-50%,20px);transition:opacity .4s var(--ease-cine),transform .5s var(--ease-cine)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* "Walk the plank": the button falls off, then respawns */
+.btn.plunge{animation:plunge 1.1s cubic-bezier(.5,0,1,.6) forwards}
+.btn.respawn{animation:rise 1s var(--ease-cine) both}
+/* Mutiny: the whole page sways like a ship */
+body.mutiny main{animation:sway 4s ease-in-out 1;transform-origin:50% 0}
+
+@keyframes wobble{0%,100%{transform:rotate(-1.5deg)}50%{transform:rotate(1.5deg) scale(1.03)}}
+@keyframes plunge{to{transform:translateY(60vh) rotate(40deg);opacity:0}}
+@keyframes sway{0%,100%{transform:rotate(0)}20%{transform:rotate(1.4deg)}40%{transform:rotate(-1.2deg)}60%{transform:rotate(.8deg)}80%{transform:rotate(-.4deg)}}
+
+@media (prefers-reduced-motion:reduce){
+  .card:nth-child(n),.card:hover{transform:none}
+  .btn--danger,.btn.plunge,.btn.respawn,body.mutiny main{animation:none}
+  .toast{transition:opacity .2s}
+}

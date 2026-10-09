@@ -1,0 +1,477 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#02050c">
+
+  <title>PIRATED | IIT (ISM) Dhanbad Tech Fest</title>
+
+  <meta name="description" content="The unofficial pirate edition of IIT (ISM) Dhanbad's tech fest. Coding, chaos, questionable decisions and suspicious treasure.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+
+  <link rel="preload" as="image" href="assets/img/hero-poster.jpg">
+  <link rel="stylesheet" href="assets/css/hero.css">
+  <link rel="stylesheet" href="assets/css/chaos.css">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header class="site-nav">
+    <a class="brand" href="#top">PIRATED</a>
+
+    <nav aria-label="Primary navigation">
+      <ul>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#rules">The Crew</a></li>
+        <li><a href="#treasure">Treasure</a></li>
+        <li><a href="#faq">Fine Print</a></li>
+        <li><a href="#contact">Send a Parrot</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main id="top">
+
+    <!-- Hero -->
+    <section class="hero" aria-label="Welcome">
+
+      <video
+        class="hero__video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="assets/img/hero-poster.jpg"
+        aria-hidden="true"
+        tabindex="-1">
+
+        <source src="assets/video/Pirate_ship_emerging_from_fog_20261009124614.mp4" type="video/mp4">
+      </video>
+
+      <div class="hero__overlay"></div>
+
+      <div class="hero__content">
+        <h1 class="hero__title reveal" style="--i:0">
+          Raise the Black Flag
+        </h1>
+
+        <p class="hero__sub reveal" style="--i:1">
+          The tech fest of IIT (ISM) Dhanbad. Our ship runs on code,
+          chai and questionable decisions. Sleep is optional.
+          Bugs are permanent crew members.
+        </p>
+
+        <div class="hero__cta reveal" style="--i:2">
+          <a class="btn btn--solid" href="#events">Plunder a Seat</a>
+          <button class="btn btn--ghost" type="button" data-plank>
+            Walk the Plank
+          </button>
+        </div>
+      </div>
+
+      <span class="hero__cue" aria-hidden="true"></span>
+    </section>
+
+
+    <!-- Events -->
+    <section class="after-hero" id="events">
+      <div class="wrap">
+
+        <h2 class="sec-title">Pick Your Own Doom</h2>
+
+        <p class="sec-sub">
+          Six events, countless bugs, zero guarantees.
+          Dates and prizes are fictional placeholders.
+          Ask the quartermaster before making plans.
+        </p>
+
+        <div class="grid">
+
+          <article class="card">
+            <h3>💻 Hack the Seven Seas</h3>
+            <p>
+              Build something in 24 hours while your sleep schedule
+              walks the plank. Winners get glory. Everyone gets bugs.
+            </p>
+            <button class="btn btn--ghost" type="button"
+              data-toast="Registration received! Your sleep schedule has been deleted.">
+              Sign Up (Rum Not Included)
+            </button>
+          </article>
+
+          <article class="card">
+            <h3>🤖 Robo Rum Race</h3>
+            <p>
+              Bots race across the deck. Ours might catch fire for
+              style points. Yours can compete for the fire extinguisher.
+            </p>
+            <button class="btn btn--ghost" type="button"
+              data-toast="Robot registered. Fire extinguisher sold separately.">
+              Enter My Bot
+            </button>
+          </article>
+
+          <article class="card">
+            <h3>🏴‍☠️ Capture the Flag</h3>
+            <p>
+              Break things politely. Find the flag, lose the password,
+              blame the kraken. Bonus points for a professional terminal.
+            </p>
+            <button class="btn btn--ghost" type="button"
+              data-toast="Access denied. The kraken changed the password again.">
+              Hack Me, Captain
+            </button>
+          </article>
+
+          <article class="card">
+            <h3>🎮 Cannonball Esports</h3>
+            <p>
+              Battle for glory. Blame the lag. Accuse the keyboard.
+              Eventually discover your opponent is just better.
+            </p>
+            <button class="btn btn--ghost" type="button"
+              data-toast="Ping: 9999ms. We blame the parrot.">
+              Join the Squad
+            </button>
+          </article>
+
+          <article class="card">
+            <h3>🕵️ Who Stole the Treasure?</h3>
+            <p>
+              Solve cursed clues and suspicious riddles.
+              The host doesn't know the answer either,
+              but confidence is everything.
+            </p>
+            <button class="btn btn--ghost" type="button"
+              data-toast="Case closed. The treasure was in your downloads folder.">
+              I Am Innocent
+            </button>
+          </article>
+
+          <article class="card">
+            <h3>📈 Shark Tank: Pirate Edition</h3>
+            <p>
+              Pitch your startup to investors who ask about revenue.
+              Your business model is a Google Doc. Your valuation is
+              three coconuts.
+            </p>
+            <button class="btn btn--ghost" type="button"
+              data-toast="Startup valuation: three coconuts and one suspicious map.">
+              Pitch My Idea
+            </button>
+          </article>
+
+        </div>
+
+        <div class="chaos-row">
+          <button class="btn btn--ghost" type="button" data-dodge>
+            Skip the Registration Fee
+          </button>
+
+          <button class="btn btn--danger" type="button" data-nopress>
+            DO NOT PRESS
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Pirate Rules -->
+    <section class="after-hero" id="rules">
+      <div class="wrap">
+
+        <h2 class="sec-title">⚓ Rules of This Ship</h2>
+        <p class="sec-sub">
+          You joined voluntarily. Leaving is a different adventure.
+        </p>
+
+        <div class="grid">
+
+          <article class="card">
+            <h3>💻 Works on My Laptop</h3>
+            <p>
+              If it works on your laptop, it's production-ready.
+              If it fails on ours, blame the Wi-Fi.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>☕ Chai Is Mandatory</h3>
+            <p>
+              No chai, no code. No code, no demo.
+              No demo, no confidence. Simple pirate mathematics.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>🤖 Blame the AI</h3>
+            <p>
+              If the project crashes, blame AI.
+              If it works, announce that you built everything yourself.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>📁 Final_Final_V7</h3>
+            <p>
+              Our official naming convention:
+              final_final_REAL_final_v7_fixed.html.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>💀 Sleep Is Optional</h3>
+            <p>
+              The hackathon ends at midnight.
+              Debugging ends when your laptop files a complaint.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>🏴‍☠️ No Crying, Captain</h3>
+            <p>
+              47 errors? Congratulations!
+              You've unlocked the beginner's treasure chest.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Treasure Shop -->
+    <section class="after-hero alt" id="treasure">
+      <div class="wrap">
+
+        <h2 class="sec-title">💰 The Totally Legit Treasure Shop</h2>
+        <p class="sec-sub">
+          Spend imaginary gold. Receive equally imaginary rewards.
+          Our refund policy has left the country.
+        </p>
+
+        <div class="grid">
+
+          <article class="card">
+            <h3>🥇 Participation Certificate</h3>
+            <p><strong>Price:</strong> 500 imaginary gold coins.</p>
+            <p>
+              Achievement unlocked: You actually showed up.
+              Legendary behaviour.
+            </p>
+            <button class="btn btn--ghost" type="button"
+              data-toast="Your certificate is travelling by parrot. Delivery date: classified.">
+              Claim Certificate
+            </button>
+          </article>
+
+          <article class="card">
+            <h3>🧠 Unlimited Confidence</h3>
+            <p><strong>Price:</strong> One working prototype.</p>
+            <p>
+              Includes the ability to say "almost done"
+              for six hours straight.
+            </p>
+            <button class="btn btn--ghost" type="button"
+              data-toast="Confidence unlocked! Technical skills sold separately.">
+              Buy Confidence
+            </button>
+          </article>
+
+          <article class="card">
+            <h3>👑 CEO of Nothing</h3>
+            <p><strong>Price:</strong> Three coconuts.</p>
+            <p>
+              A fancy title, zero customers and unlimited
+              LinkedIn posts.
+            </p>
+            <button class="btn btn--ghost" type="button"
+              data-toast="Congratulations, Captain CEO! Your salary is one coconut per year.">
+              Become CEO
+            </button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Complaint Department -->
+    <section class="after-hero" id="complaints">
+      <div class="wrap narrow">
+
+        <h2 class="sec-title">📢 Captain, I Have a Complaint!</h2>
+        <p class="sec-sub">
+          Our customer support parrot is professionally trained
+          to ignore people.
+        </p>
+
+        <div class="card">
+          <h3>What went wrong, sailor?</h3>
+          <p>
+            Choose your problem. Our highly unqualified support
+            team is standing by.
+          </p>
+
+          <div class="chaos-row">
+
+            <button class="btn btn--ghost" type="button"
+              data-toast="Complaint #404 created. The problem could not be found.">
+              My Code Doesn't Work
+            </button>
+
+            <button class="btn btn--ghost" type="button"
+              data-toast="Your teammate has been promoted to Professional Excuse Maker.">
+              My Teammate Disappeared
+            </button>
+
+            <button class="btn btn--ghost" type="button"
+              data-toast="Support tip: Have you tried turning your laptop off and on again?">
+              I Need Tech Support
+            </button>
+
+            <button class="btn btn--danger" type="button"
+              data-toast="Complaint rejected. The parrot says: skill issue.">
+              I Want the Captain
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- FAQ -->
+    <section class="after-hero alt" id="faq">
+      <div class="wrap narrow">
+
+        <h2 class="sec-title">🦜 Frequently Avoided Questions</h2>
+        <p class="sec-sub">
+          Questions nobody asked. Answers nobody authorised.
+        </p>
+
+        <div class="card">
+
+          <h3>Q. Is this the official IIT (ISM) website?</h3>
+          <p>
+            No. The official website has standards.
+            We have a parrot and questionable CSS.
+          </p>
+
+          <h3>Q. Will I get a job after this hackathon?</h3>
+          <p>
+            Maybe. Our career counsellor is currently stuck
+            in an infinite loop.
+          </p>
+
+          <h3>Q. Are the prizes real?</h3>
+          <p>
+            The dreams are real. The treasure is under investigation.
+          </p>
+
+          <h3>Q. Why is the website behaving strangely?</h3>
+          <p>
+            That's not a bug. That's our premium pirate experience.
+          </p>
+
+          <h3>Q. Can I get my registration fee back?</h3>
+          <p>
+            You can receive a heartfelt apology from a parrot.
+            It accepts no follow-up questions.
+          </p>
+
+          <h3>Q. What if my project doesn't work?</h3>
+          <p>
+            Rename it to "AI-Powered Experimental Prototype"
+            and present it with confidence.
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Final Message -->
+    <section class="after-hero" id="final-call">
+      <div class="wrap narrow">
+
+        <h2 class="sec-title">🏴‍☠️ You've Reached the End, Captain!</h2>
+
+        <p class="sec-sub">
+          You survived the bugs, the chaos and the suspiciously
+          creative event management team.
+          You're officially ready to sail.
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn btn--solid" href="#top">
+            Sail Back to the Top
+          </a>
+
+          <button class="btn btn--ghost" type="button"
+            data-toast="Mission complete! Your reward is this notification.">
+            Collect My Loot
+          </button>
+        </div>
+
+        <p class="sec-sub">
+          Disclaimer: This is a fictional parody website.
+          Events, prizes and registration messages are jokes,
+          not official IIT (ISM) Dhanbad announcements.
+        </p>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="foot" id="contact">
+
+    <p>
+      Made by sleepless students of IIT (ISM) Dhanbad.
+      Powered by code, chai and questionable decisions.
+    </p>
+
+    <p>
+      No actual ships were harmed.
+      Several bugs were emotionally damaged.
+    </p>
+
+    <p>
+      <a href="#top">Back to the Ship ↑</a>
+      |
+      <a href="#events">Explore Events</a>
+      |
+      <a href="#faq">Read the Fine Print</a>
+    </p>
+
+    <p>
+      © 2026 PIRATED — An unofficial parody website.
+    </p>
+
+  </footer>
+
+
+  <!-- Toast Notifications -->
+  <div class="toast" role="status" aria-live="polite"></div>
+
+
+  <!-- Existing JavaScript Files -->
+  <script src="assets/js/hero.js" defer></script>
+  <script src="assets/js/chaos.js" defer></script>
+
+</body>
+</html>
+```
